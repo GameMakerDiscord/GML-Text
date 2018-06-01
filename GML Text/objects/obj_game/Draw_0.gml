@@ -1,0 +1,1 @@
+gml_text_draw(240,360,gml_text_find("test"));
