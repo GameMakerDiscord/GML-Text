@@ -13,7 +13,8 @@ _end_pos = string_pos(">",_str),
 _str_parse = "",
 _str_length = string_length(_str),
 _parse_pos_value = 0,
-_parse_length_value = 0;
+_parse_length_value = 0,
+_tag = "";
 
 for ( var i = 1; i < _str_length; ++ i; ) {
 	_char = string_char_at(_str,i);
@@ -57,8 +58,10 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 		
 			_str_length -= _parse_length_value;
 			i -= 1;
+			
+			_tag = string_delete(_str_parse,_parse_pos_value,_parse_length_value);
 		
-			switch ( string_delete(_str_parse,_parse_pos_value,_parse_length_value) ) {
+			switch ( _tag ) {
 				
 				// Use this to get the value after the = sign
 				// string_copy(_str_parse,_parse_pos_value + 1,_parse_length_value - 5)

@@ -159,6 +159,14 @@
             }
         },
         {
+            "Key": "625691af-4655-47f0-a0e1-7266fd06b9e1",
+            "Value": {
+                "id": "c3f8d44d-d80a-49aa-8b54-552f730a251b",
+                "resourcePath": "notes\\ReadMe.yy",
+                "resourceType": "GMNotes"
+            }
+        },
+        {
             "Key": "75ac291e-7061-4bcb-8e8a-3b3545332d41",
             "Value": {
                 "id": "5b6ec5e9-dc4a-44d6-894a-180597da77c2",
