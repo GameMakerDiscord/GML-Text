@@ -2,6 +2,10 @@
 /// @func gml_text_draw()
 /// @arg x,y,map
 
+/* Used for benchmarking this script
+var _t = get_timer();
+*/
+
 var
 _instruction_list = argument2[? Gml_Text.Instructions],
 _size = ds_list_size(_instruction_list),
@@ -29,13 +33,15 @@ for ( var i = 0; i < _size; ++ i; ) {
 		
 				case 0:
 				draw_text(_x_off + _x_adjust,_y_off + _y_adjust,_instruction_list[| i]);
-				_x_off += string_width(_instruction_list[| i]);
+				++ i;
+				_x_off += _instruction_list[| i];
 				_mode = -1;
 				break;
 		
 				case 1:
 				draw_text(_x_off + _x_adjust + irandom_range(-_value,_value),_y_off + _y_adjust + irandom_range(-_value,_value),_instruction_list[| i]);
-				_x_off += string_width(_instruction_list[| i]);
+				++ i;
+				_x_off += _instruction_list[| i];
 				_mode = -1;
 				break;
 		
@@ -58,23 +64,29 @@ for ( var i = 0; i < _size; ++ i; ) {
 		break;
 		
 		case "<offset_y>":
-			_y_adjust = _instruction_list[| i +1];
 			++ i;
+			_y_adjust = _instruction_list[| i];
 		break;
 		
 		case "<sprite>":
-			draw_sprite(_instruction_list[| i +1],0,_x_off + _x_adjust,_y_off + _y_adjust);
-			_x_off += sprite_get_width(_instruction_list[| i +1]);
+			++ i;
+			draw_sprite(_instruction_list[| i],0,_x_off + _x_adjust,_y_off + _y_adjust);
+			++ i;
+			_x_off += _instruction_list[| i];
 		break;
 		
 		case "<shake>":
+			++ i;
 			_mode = 1;
-			_value = _instruction_list[| i + 1];
+			_value = _instruction_list[| i];
 			if ( _value == 0 ) {
 				_mode = -1;
 			}
-			++ i;
 		break;
 	}
 	
 }
+
+/* Used for benchmarking this script
+show_debug_message(get_timer() - _t);
+*/

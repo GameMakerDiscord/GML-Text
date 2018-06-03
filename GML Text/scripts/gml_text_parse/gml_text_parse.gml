@@ -36,6 +36,7 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 			
 			-- i;
 			ds_list_add(_instruction_list,_str_build);
+			ds_list_add(_instruction_list,string_width(_str_build));
 		}
 		
 	} else {
@@ -43,7 +44,7 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 		if ( _char == "/" && string_char_at(_str,i + 1) == "n" ) {
 			
 			ds_list_add(_instruction_list,"<newline>");
-			i ++;
+			++ i;
 			
 		} else {
 		
@@ -57,7 +58,7 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 			_parse_length_value = string_length(_str_parse);
 		
 			_str_length -= _parse_length_value;
-			i -= 1;
+			-- i;
 			
 			_tag = string_delete(_str_parse,_parse_pos_value,_parse_length_value);
 		
@@ -69,6 +70,7 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 				case "font":
 					ds_list_add(_instruction_list,"<font>");
 					ds_list_add(_instruction_list,asset_get_index(string_copy(_str_parse,_parse_pos_value + 1,_parse_length_value - 5)));
+					draw_set_font(_instruction_list[| ds_list_size(_instruction_list) - 1]);
 				break;
 				
 				case "color":
@@ -84,6 +86,7 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 				case "sprite":
 					ds_list_add(_instruction_list,"<sprite>");
 					ds_list_add(_instruction_list,asset_get_index(string_copy(_str_parse,_parse_pos_value + 1,_parse_length_value - 5)));
+					ds_list_add(_instruction_list,sprite_get_width(_instruction_list[| ds_list_size(_instruction_list) - 1]));
 				break;
 				
 				case "newline":
