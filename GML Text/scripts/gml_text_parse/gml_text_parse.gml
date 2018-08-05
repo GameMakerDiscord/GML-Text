@@ -14,7 +14,13 @@ _str_parse = "",
 _str_length = string_length(_str),
 _parse_pos_value = 0,
 _parse_length_value = 0,
-_tag = "";
+_tag = "",
+_str_width = 0,
+_line_width = 0,
+_total_width = 0,
+_offset_y = 0,
+_str_height = 0,
+_total_height = 0;
 
 for ( var i = 1; i < _str_length; ++ i; ) {
 	_char = string_char_at(_str,i);
@@ -35,8 +41,15 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 			}
 			
 			-- i;
+            _str_width = string_width(_str_build);
+            _str_height = string_height(_str_build);
+            
 			ds_list_add(_instruction_list,_str_build);
-			ds_list_add(_instruction_list,string_width(_str_build));
+			ds_list_add(_instruction_list,_str_width);
+            
+            _line_width += _str_width;
+            _total_width = max(_total_width, _line_width);
+            _total_height = max(_total_height, _offset_y + _str_height);
 		}
 		
 	} else {
@@ -45,6 +58,8 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 			
 			ds_list_add(_instruction_list,"<newline>");
 			++ i;
+            _offset_y += string_height(" ");
+            _line_width = 0;
 			
 		} else {
 		
@@ -91,6 +106,8 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 				
 				case "newline":
 					ds_list_add(_instruction_list,"<newline>");
+                    _line_width = 0;
+                    _offset_y += string_height(" ");
 				break;
 				
 				case "shake":
@@ -102,3 +119,6 @@ for ( var i = 1; i < _str_length; ++ i; ) {
 		}
 	}
 }
+
+_map[? Gml_Text.Width  ] = _total_width;
+_map[? Gml_Text.Height ] = _total_height;

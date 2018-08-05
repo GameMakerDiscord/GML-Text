@@ -111,14 +111,6 @@
             }
         },
         {
-            "Key": "3a5af38c-757d-44ae-98c0-5d4b09e14e6a",
-            "Value": {
-                "id": "51cdb871-d503-4cb2-8b3f-d43fc86664fb",
-                "resourcePath": "options\\ps4\\options_ps4.yy",
-                "resourceType": "GMPS4Options"
-            }
-        },
-        {
             "Key": "4ab7f2b3-824b-4a45-a19a-a74d6f7a9c99",
             "Value": {
                 "id": "472fb506-822c-47b2-8649-3a16cefc2ffb",
@@ -148,6 +140,14 @@
                 "id": "347e644f-9e23-4f39-a294-a1b8372d5558",
                 "resourcePath": "views\\4fb58db0-773a-40d3-8968-9d62510a5edd.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "53292343-4313-4359-9cea-8452be389dab",
+            "Value": {
+                "id": "0c634460-fd34-4427-8ad6-5ce7a0142f02",
+                "resourcePath": "scripts\\gml_text_find_width\\gml_text_find_width.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -188,6 +188,14 @@
                 "id": "3edea3c1-ca05-474f-ba6e-65f9b07d99cc",
                 "resourcePath": "options\\windowsuap\\options_windowsuap.yy",
                 "resourceType": "GMWindowsUAPOptions"
+            }
+        },
+        {
+            "Key": "7ed2c11b-6786-4bb3-9e66-2dd3bcba6595",
+            "Value": {
+                "id": "3f289088-1321-4ac6-aa47-e870c8e6ea59",
+                "resourcePath": "scripts\\gml_text_find_height\\gml_text_find_height.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -365,6 +373,8 @@
         "2665b69d-a5f2-4c4a-b663-5e3a6fcf8441",
         "eb9643ed-e14f-45d7-8eff-5c01c34ed600",
         "c3891020-d038-4fd0-a77c-b33802a82ce6",
+        "53292343-4313-4359-9cea-8452be389dab",
+        "7ed2c11b-6786-4bb3-9e66-2dd3bcba6595",
         "e59fd34f-c24c-4c94-ab60-853165e541bd",
         "a6884416-8990-464b-9e16-38df4a868398"
     ],

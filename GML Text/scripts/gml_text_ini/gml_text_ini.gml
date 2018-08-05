@@ -6,5 +6,7 @@ global.Gml_Text_Colors = ds_map_create();
 
 enum Gml_Text {
 	String,
-	Instructions
+	Instructions,
+    Width,
+    Height
 }

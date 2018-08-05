@@ -9,7 +9,7 @@ var _map = global.Gml_Text_Map[? argument0];
 
 // Required data structure values
 ds_map_add(_map,Gml_Text.String,argument1);
-ds_map_add(_map,Gml_Text.Instructions,ds_list_create());
+ds_map_add_list(_map,Gml_Text.Instructions,ds_list_create());
 
 // Parse the string and store it in memory
 gml_text_parse(_map,argument1);
